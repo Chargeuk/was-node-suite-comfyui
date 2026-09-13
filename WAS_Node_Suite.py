@@ -387,7 +387,8 @@ def packages(versions=False):
         return []
 
 def install_package(package, uninstall_first: Union[List[str], str] = None):
-    if os.getenv("WAS_BLOCK_AUTO_INSTALL", 'False').lower() in ('true', '1', 't'):
+    # Keep startup from modifying this managed environment; opt in explicitly with 0.
+    if os.getenv("WAS_BLOCK_AUTO_INSTALL", 'True').lower() in ('true', '1', 't'):
         cstr(f"Preventing package install of '{package}' due to WAS_BLOCK_INSTALL env").msg.print()
     else:
         if uninstall_first is None:
