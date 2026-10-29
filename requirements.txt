@@ -8,7 +8,7 @@ joblib
 matplotlib
 numba>=0.62
 numpy
-opencv-python-headless[ffmpeg]
+opencv-python-headless
 pilgram
 git+https://github.com/ltdrdata/ffmpy.git
 rembg
